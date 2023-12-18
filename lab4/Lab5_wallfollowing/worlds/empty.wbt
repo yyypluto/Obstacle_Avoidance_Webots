@@ -1,0 +1,63 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.5773502691896257 0.5773502691896257 0.5773502691896257 2.0944
+  position 0 0 10
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 6 6
+  floorTileSize 0.2 0.2
+  wallHeight 0.4
+}
+Pioneer3dx {
+  controller "MyLab5Controller"
+  supervisor TRUE
+  extensionSlot [
+    Camera {
+      translation 0 0 0.21
+      width 640
+      height 640
+    }
+    Display {
+      name "sensor_display"
+      width 500
+      height 500
+    }
+  ]
+}
+WoodenBox {
+  translation -0.95 1.55 0.25
+  rotation 0 0 1 0.5
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation -1.05 0.15 0.25
+  name "wooden box(1)"
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation -1.05 -0.35 0.25
+  name "wooden box(2)"
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation -1.05 -0.85 0.25
+  name "wooden box(3)"
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation 1.35 0.85 0.25
+  rotation 0 0 1 0.6
+  name "wooden box(4)"
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation -0.05 -1.55 0.25
+  name "wooden box(5)"
+  size 0.5 0.5 0.5
+}
