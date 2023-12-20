@@ -1,0 +1,148 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.402443163493972 0.7927039088513514 0.4578864630547103 1.6737503984165862
+  position -0.1473596402329758 -0.31119791768641375 3.6924422547835847
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+WoodenBox {
+  translation 0.45 0.45 0.05
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0 0 0.05
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+E-puck {
+  hidden position_0_0 539.9637269729039
+  hidden position_0_1 529.6792782157916
+  hidden linearVelocity_0 0.022914471059938508 0.05835002282559177 -1.9230452408293706e-08
+  hidden angularVelocity_0 0.006943635284757527 -0.0027268144344556313 -1.1310548184998563e-08
+  hidden rotation_1 0 -1 0 5.765020048128908
+  hidden linearVelocity_1 0.022900841216624803 0.058315303295855325 1.1008345013651841e-11
+  hidden angularVelocity_1 -2.9157652137499226 1.1450418834629872 7.175860064257007e-08
+  hidden rotation_2 0 -0.9999999999999999 0 0.8405658555400578
+  hidden linearVelocity_2 0.022900832834762547 0.0583153061954709 -2.9621715983802503e-11
+  hidden angularVelocity_2 -2.9157652419214592 1.1450418116863728 -8.184023196598028e-08
+  translation -0.35293539230587795 0.1795876935645692 -6.396114491196217e-05
+  rotation 0.00016480703114410875 -0.00024178386505826796 -0.9999999571896018 -1.1965926973996153
+  controller "EPuckAvoidCollision"
+}
+Solid {
+  translation -0.10546609625980632 0.373465385638082 0.0491781593618209
+  rotation 0.8183831011657404 0.2012625284242315 0.5382773396480954 2.436688203369163
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../../red_brick_wall.jpg"
+          ]
+        }
+      }
+      geometry DEF BALL_GEOMETRY Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE BALL_GEOMETRY
+  physics Physics {
+  }
+  linearVelocity 0 0 5.4281466563644013e-17
+}
+Solid {
+  translation 0 -0.5 0
+  children [
+    DEF BOUNDING_WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+      }
+      geometry Box {
+        size 1 0.02 0.2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation 0 0.5 0
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(2)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation -0.5 -5.09802e-07 0
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(3)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation 0.5 5.09803e-07 0
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(4)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation 0.4539080963896099 0.19999861213398237 0.029797827203007946
+  rotation -0.31624340282885544 -0.6708150953206569 0.6708183197089688 -2.5290219204666924
+  children [
+    DEF G0 Group {
+      children [
+        Pose {
+          translation 0 0 -0.05
+          children [
+            DEF DUMBBELL_WEIGHTS Shape {
+              geometry Sphere {
+                radius 0.03
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 0.05
+          children [
+            USE DUMBBELL_WEIGHTS
+          ]
+        }
+        Shape {
+          geometry Cylinder {
+            height 0.1
+            radius 0.01
+          }
+        }
+      ]
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE G0
+  physics Physics {
+  }
+  linearVelocity 0.03329730190494816 -3.394998636300244e-07 5.591434956482383e-17
+  angularVelocity 1.131666212108573e-05 1.1099100634982721 -3.1139996891244835e-16
+}

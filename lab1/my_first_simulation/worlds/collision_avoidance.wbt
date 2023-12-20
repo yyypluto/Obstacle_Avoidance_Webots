@@ -1,0 +1,104 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.07233496118951764 0.9903391775341248 0.11830455118356166 1.1056601132097224
+  position -0.5147014533667865 -0.45367121119024356 0.9554722461725257
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+WoodenBox {
+  translation 0.45 0.45 0.05
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0 0 0.05
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+E-puck {
+  hidden position_0_0 209.6021823226553
+  hidden position_0_1 209.60218185454931
+  hidden rotation_1 0 0.9999999999999999 0 3.165441889320108
+  hidden rotation_2 0 1 0 5.807973756556192
+  translation -0.053259 -0.263418 -0.000819141
+  rotation -0.002059561078577145 -0.002128006407905117 -0.999995614888831 1.5261050867141959
+  controller "EPuckAvoidCollision"
+}
+Solid {
+  translation -0.10546609625980632 0.373465385638082 0.0491781593618209
+  rotation 0.8183831011657401 0.20126252842423145 0.5382773396480957 2.436688203369163
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../../red_brick_wall.jpg"
+          ]
+        }
+      }
+      geometry DEF BALL_GEOMETRY Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE BALL_GEOMETRY
+  physics Physics {
+  }
+  linearVelocity -0.004274885306010304 -0.000681268109686992 8.376064629158486e-17
+  angularVelocity 0.013625362193739839 -0.08549770612020607 -0.08568580111578665
+}
+Solid {
+  translation 0 -0.5 0
+  children [
+    DEF BOUNDING_WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+      }
+      geometry Box {
+        size 1 0.02 0.2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation 0 0.5 0
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(2)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation -0.5 -5.09802e-07 0
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(3)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation 0.5 5.09803e-07 0
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(4)"
+  boundingObject USE BOUNDING_WALL
+}

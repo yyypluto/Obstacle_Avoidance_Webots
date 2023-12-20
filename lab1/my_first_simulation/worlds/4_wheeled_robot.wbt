@@ -1,0 +1,70 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.017852648101080525 0.9857147380979489 0.16747458927333103 0.3867933019135021
+  position -7.07566533209302 0.5549994866330111 2.733972882870754
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+WoodenBox {
+  translation 0.45 0.45 0.05
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0 0 0.05
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+Solid {
+  translation 0 -0.5 0
+  children [
+    DEF BOUNDING_WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+      }
+      geometry Box {
+        size 1 0.02 0.2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation 0 0.5 0
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(2)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation -0.5 -5.09802e-07 0
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(3)"
+  boundingObject USE BOUNDING_WALL
+}
+Solid {
+  translation 0.5 5.09803e-07 0
+  rotation 0 0 1 -1.5707953071795862
+  children [
+    USE BOUNDING_WALL
+  ]
+  name "solid(4)"
+  boundingObject USE BOUNDING_WALL
+}

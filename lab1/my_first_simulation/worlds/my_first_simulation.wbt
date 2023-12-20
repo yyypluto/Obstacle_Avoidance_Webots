@@ -1,0 +1,46 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.49187277875121177 0.3282914434444187 0.8064030615546679 1.9683465681439967
+  position 0.14518538035423867 -0.9439959041764227 1.025933896502611
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorTileSize 0.25 0.25
+  wallHeight 0.05
+}
+WoodenBox {
+  translation 0.45 0.45 0.05
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0 0 0.05
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+E-puck {
+  hidden position_0_0 67.41212546650286
+  hidden position_0_1 67.41212546536244
+  hidden linearVelocity_0 -0.005262431662451577 0.009094599457918597 -1.0254392275741441e-08
+  hidden angularVelocity_0 -0.24579920521237733 -0.1422274305808775 0.0006886862080490519
+  hidden rotation_1 0 -0.9999999999999999 0 0.7945382088814157
+  hidden linearVelocity_1 -0.006130310742726925 0.01055968330682961 -0.007186005110064823
+  hidden angularVelocity_1 -0.5517947432995354 0.38672763517328845 0.14548277606618282
+  hidden rotation_2 0 1 0 1.847994125320414
+  hidden linearVelocity_2 -0.004394551333995016 0.0076295134995925055 0.007185994839715958
+  hidden angularVelocity_2 -0.5517947425414935 0.38672763497211443 0.14548277840369395
+  translation 0.39448026433185135 -0.4087619397447058 0.036813716727317404
+  rotation -0.36353173741414946 0.9199954385896617 -0.14646866172279266 -1.5902435385025955
+  controller "EPuckGoForward"
+}
