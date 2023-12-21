@@ -1,0 +1,43 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/adept/pioneer3/protos/Pioneer3dx.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.18561175585251685 0.19513465579856848 0.9630528241979875 1.5584261876573249
+  position -0.5319946946442048 -9.201501350737864 3.251555528899073
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 4 4
+}
+Pioneer3dx {
+  hidden position_0_0 -7.590488673159257e-07
+  hidden position_0_1 39.479838735842755
+  hidden position_0_2 39.47983872220495
+  hidden linearVelocity_0 -2.3442926913501444e-06 -5.971829917889514e-08 1.5316804355148516e-06
+  hidden angularVelocity_0 -5.031033417146186e-07 -3.054646651040533e-05 2.297930599389012e-08
+  hidden rotation_1 0.5773499770315719 -0.5773504152685843 -0.5773504152686102 2.0943954382371235
+  hidden position_1_0 -75.80090661948995
+  hidden linearVelocity_1 6.679549385449417e-07 -1.065012086942604e-07 -2.3916320584136152e-06
+  hidden angularVelocity_1 -5.023965862532801e-07 -3.054605714902358e-05 1.919280844688902e-08
+  hidden rotation_2 -1 0 0 0.4026829333349127
+  hidden linearVelocity_2 1.2960330504605538e-06 -1.1120866530600618e-07 -2.606127532065402e-06
+  hidden angularVelocity_2 -5.02143484522747e-07 3.456058509499958e-05 1.902060748892063e-08
+  hidden rotation_4 -0.10420227309820666 0.1042023377296261 -0.9890822812551278 1.5817738078302412
+  hidden linearVelocity_4 -6.139593296833069e-07 -9.443457658909775e-08 3.3044925661986926e-06
+  hidden angularVelocity_4 2.612070472992205e-06 5.2399379027997695 -1.4087917882477652e-05
+  hidden rotation_9 -0.10420226642698464 0.10420233105840382 -0.9890822826607877 1.5817738064091507
+  hidden linearVelocity_9 -6.0599494579396e-07 -9.443405873995485e-08 3.467255299141379e-06
+  hidden angularVelocity_9 2.612070445355361e-06 5.239937903342819 -1.4087917912787989e-05
+  translation 1.8702308623666217 0.9999995639822767 0.09578306834234841
+  rotation -5.4465857935125206e-05 -0.9999999984596748 -1.0682733601636058e-05 0.04986828023240712
+  controller "DriveController"
+}
