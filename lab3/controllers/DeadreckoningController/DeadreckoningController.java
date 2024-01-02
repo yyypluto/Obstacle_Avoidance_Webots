@@ -32,19 +32,19 @@ public class DeadreckoningController {
     // set up display
     Display odometry_display = robot.getDisplay("odometryDisplay");
     String display_action = "";
-
+    
     if (schedule[0] == PioneerNav1.MoveState.CONFIGURE) {
       schedule_index++;
       nav.configure_initialise_parameters(2*Math.PI);
     }
-
 
     while (robot.step(timeStep) != -1) {
       state = nav.getState();
       if (state == PioneerNav1.MoveState.CONFIGURE) {
         // Special case for checking robot parameters
        display_action = nav.configure_check_parameters(timeStep);
-      } else if (time_elapsed > target_time) {
+      }
+      else if (time_elapsed > target_time) {
         time_elapsed = 0;
             
         // select next action in schedule if not stopped
@@ -67,7 +67,8 @@ public class DeadreckoningController {
           display_action = "Stop for 1 minute";
           target_time = 60 * 1000; // This doesn't really stop, but pauses for 1 minute
         }
-      } else
+      }
+      else
         time_elapsed += timeStep;    // Increment by the time state
 
       

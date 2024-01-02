@@ -18,31 +18,34 @@ public class MyLab5Controller {
     int timeStep = (int) Math.round(robot.getBasicTimeStep());
     
     Pose robot_pose = new Pose(0.0, 0.0, 0.0);
-    PioneerNav2 nav = new PioneerNav2(robot, robot_pose);
+    PioneerProxSensors1 prox_sensors = new PioneerProxSensors1(robot, "sensor_display", robot_pose);
+    PioneerNav2 nav = new PioneerNav2(robot, robot_pose, prox_sensors);
     
     Camera camera = robot.getCamera("camera");
     if (camera != null)
       camera.enable(timeStep);
 
-    PioneerProxSensors1 prox_sensors = new PioneerProxSensors1(robot, "sensor_display", robot_pose);
-
     double time_elapsed = 0;
     double target_time = 0;
     double robot_velocity = 0.3;
-    
+ 
     // define schedule
-    PioneerNav2.MoveState[] schedule = { PioneerNav2.MoveState.ARC };
+    PioneerNav2.MoveState[] schedule = { PioneerNav2.MoveState.FOLLOW_WALL };
     int schedule_index = -1; // we increment before selecting the current action
     PioneerNav2.MoveState state; // current state
 
     while (robot.step(timeStep) != -1) {
+      
       // Testing out the front proximity sensors
+      System.out.println(String.format("Sensor readings for so3 | so4: %.3f | %.3f",
+        prox_sensors.get_value(3), prox_sensors.get_value(4)));
 
       robot_pose = nav.get_real_pose();
       prox_sensors.set_pose(robot_pose);
       prox_sensors.paint();  // Render sensor Display
                
       state = nav.getState();
+      System.out.println(state);
       if (time_elapsed > target_time) {
         time_elapsed = 0;
             
@@ -55,6 +58,10 @@ public class MyLab5Controller {
         } else 
         if (state == PioneerNav2.MoveState.ARC) {
           target_time = nav.arc(Math.PI/2.0, 0.0, robot_velocity);
+        } else
+        if (state == PioneerNav2.MoveState.FOLLOW_WALL) {
+          target_time = 0; // always refresh!
+          nav.follow_wall(robot_velocity, 0.2, false);
         } else
         if (state == PioneerNav2.MoveState.STOP) {
           nav.stop();

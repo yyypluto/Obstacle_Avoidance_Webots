@@ -1,0 +1,105 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/adept/pioneer3/protos/Pioneer3dx.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficCone.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.4743257267174953 0.46493358553943703 0.7475639544623344 1.8768449747710862
+  position -1.1673225973353867 -6.723449764084667 24.150934156723572
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 12 9
+  floorTileSize 1 1
+}
+Wall {
+  translation -2.48842 1.92079 0
+  rotation 0 0 1 0.4
+  name "TopLeft-1"
+  size 4 1.5 0.5
+}
+Wall {
+  translation -3.34317 0.739671 0
+  rotation 0 0 1 0.4
+  name "TopLeft-2"
+  size 1.5 3 0.5
+}
+Wall {
+  translation 3 2 0
+  rotation 0 0 1 0.75
+  name "Triangle-1"
+  size 3 0.2 0.5
+}
+Wall {
+  translation 4.1 1.6 0
+  rotation 0 0 1 1.5707996938995747
+  name "Triangle-2"
+  size 3 0.2 0.5
+}
+Wall {
+  translation 3.04 0.6 0
+  rotation 0 0 1 -0.39
+  name "Triangle-3"
+  size 2.45 0.2 0.5
+}
+Wall {
+  translation 0.748815 -1 0
+  rotation 0 0 1 -0.1
+  name "MidBottom-1"
+  size 2 2 0.5
+}
+Wall {
+  translation -0.0120929 -1.46868 0
+  rotation 0 0 1 -0.8
+  name "MidBottom-2"
+  size 2.4 2 0.5
+}
+Wall {
+  translation 0.761822 -2.386 0
+  rotation 0 0 1 -0.9691003061004254
+  name "MidBottom-3"
+  size 0.5 1.8 0.5
+}
+Pioneer3dx {
+  hidden position_0_0 -0.27601706537043247
+  hidden position_0_1 82.82412307060116
+  hidden position_0_2 219.1532934088178
+  hidden rotation_1 0.4714843829423086 -0.6235793716231548 -0.6235793806145149 2.260440542159463
+  hidden position_1_0 -505.5956915225447
+  hidden rotation_2 -1 0 0 2.940866948177794
+  hidden rotation_4 -0.20777502249088745 0.20777497826682756 0.9558551660346511 4.6672555058321405
+  hidden rotation_9 -0.676493379767142 0.6764934025529659 0.2910556363198283 3.7080545414414026
+  translation -4.5 3 0.0975
+  rotation 0 0 1 0
+  controller "MyBug1Controller"
+  supervisor TRUE
+  extensionSlot [
+    Display {
+      name "odometryDisplay"
+      width 300
+      height 128
+    }
+    Camera {
+      translation 0 0 0.21
+      width 128
+      height 128
+    }
+    Display {
+      name "sensor_display"
+      width 128
+      height 128
+    }
+  ]
+}
+TrafficCone {
+  translation 2.74859 -3.25946 0
+}
