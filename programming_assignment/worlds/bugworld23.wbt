@@ -5,13 +5,12 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/adept/pioneer3/protos/Pioneer3dx.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficCone.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.4743257267174953 0.46493358553943703 0.7475639544623344 1.8768449747710862
-  position -1.1673225973353867 -6.723449764084667 24.150934156723572
+  orientation -0.538640610437769 0.4971858266637438 0.680200372355027 2.020304374529112
+  position -0.7673898402387134 -5.809366902376641 32.88780600615041
 }
 TexturedBackground {
 }
@@ -70,17 +69,16 @@ Wall {
   size 0.5 1.8 0.5
 }
 Pioneer3dx {
-  hidden position_0_0 -0.27601706537043247
-  hidden position_0_1 82.82412307060116
-  hidden position_0_2 219.1532934088178
-  hidden rotation_1 0.4714843829423086 -0.6235793716231548 -0.6235793806145149 2.260440542159463
-  hidden position_1_0 -505.5956915225447
-  hidden rotation_2 -1 0 0 2.940866948177794
-  hidden rotation_4 -0.20777502249088745 0.20777497826682756 0.9558551660346511 4.6672555058321405
-  hidden rotation_9 -0.676493379767142 0.6764934025529659 0.2910556363198283 3.7080545414414026
+  hidden position_0_0 0.0029439182573223516
+  hidden position_0_1 653.4146716723803
+  hidden position_0_2 734.8457754413866
+  hidden rotation_1 0.5784833833420814 -0.5767828773954133 -0.5767828772948851 2.0926961627697604
+  hidden position_1_0 -1937.295119808832
+  hidden rotation_2 -0.9999999999999999 0 0 2.0740451975193066
+  hidden rotation_4 0.5842661403065816 -0.5842661415481696 -0.5632638397160463 2.115653516360094
+  hidden rotation_9 -0.6251387166248571 0.6251387259536262 0.4673362368677436 4.015946456122973
   translation -4.5 3 0.0975
-  rotation 0 0 1 0
-  controller "MyBug1Controller"
+  controller "MyBug2Controller"
   supervisor TRUE
   extensionSlot [
     Display {
@@ -99,7 +97,4 @@ Pioneer3dx {
       height 128
     }
   ]
-}
-TrafficCone {
-  translation 2.74859 -3.25946 0
 }

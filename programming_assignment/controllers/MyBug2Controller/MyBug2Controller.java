@@ -2,14 +2,18 @@ import com.cyberbotics.webots.controller.Supervisor;
 import com.cyberbotics.webots.controller.Camera;
 import com.cyberbotics.webots.controller.Display;
 
-public class MyBug1Controller {
+public class MyBug2Controller {
 
   public static void main(String[] args) {
 
     Supervisor robot = new Supervisor();
     int timeStep = (int) Math.round(robot.getBasicTimeStep());
     
-    Pose robot_pose = new Pose(-4.5, 3.0, 0.0);
+    // define the start position
+    double robot_start_x = -4.5;
+    double robot_start_y = 3.0;
+    
+    Pose robot_pose = new Pose(robot_start_x, robot_start_y, 0.0);
     PioneerProxSensors1 prox_sensors = new PioneerProxSensors1(robot, "sensor_display", robot_pose);
     PioneerNav2 nav = new PioneerNav2(robot, robot_pose, prox_sensors);
     
@@ -32,6 +36,8 @@ public class MyBug1Controller {
     double distanceToQH;
     double distanceToQL;
     double shortestDistance;
+    final double mLineDistance = Math.sqrt(Math.pow(robot_final_x - robot_pose.getX(), 2) + Math.pow(robot_final_y - robot_pose.getY(), 2));
+    double distanceToStart;
     
     // define the start point
     double[] qL = new double[2];
@@ -77,6 +83,8 @@ public class MyBug1Controller {
       // if reach the target, then STOP;
       distanceToTarget = Math.sqrt(Math.pow(robot_final_x - robot_pose.getX(), 2) + Math.pow(robot_final_y - robot_pose.getY(), 2));
       if (distanceToTarget < set_point) state = PioneerNav2.MoveState.REACH_TARGET;
+      
+      distanceToStart = Math.sqrt(Math.pow(robot_start_x - robot_pose.getX(), 2) + Math.pow(robot_start_y - robot_pose.getY(), 2));
 
       if (time_elapsed > target_time) {
         time_elapsed = 0;
@@ -104,7 +112,7 @@ public class MyBug1Controller {
             distanceToQH = Math.sqrt(Math.pow(qH[0] - robot_pose.getX(), 2) + Math.pow(qH[1] - robot_pose.getY(), 2));
             System.out.println(state + ": Not re-encountered, distanceToQH = " + distanceToQH);
             current_system_time = System.currentTimeMillis();
-            if (current_system_time - start_system_time > 100 * timeStep) {
+            if (current_system_time - start_system_time > 20 * timeStep) {
               if (distanceToQH < 0.1) {
                 is_qH_re_encountered = true;
               } else {
@@ -113,7 +121,15 @@ public class MyBug1Controller {
                   qL[0] = robot_pose.getX();
                   qL[1] = robot_pose.getY();
                 }
-              }  
+              }
+              
+              if (Math.abs(distanceToTarget + distanceToStart - mLineDistance) < 0.5) {
+                shortestDistance = distanceToTarget;
+                qL[0] = robot_pose.getX();
+                qL[1] = robot_pose.getY();
+                is_qH_re_encountered = false;
+                state = PioneerNav2.MoveState.GO_TO_TARGET;
+              }
             }
           }
         }
